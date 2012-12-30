@@ -5,9 +5,11 @@ def main
 	game = Game.new(load_words)
 
 	while true
+		puts ""
 		game_state(game)
 		print "enter letter: "
 		letter = gets.chomp
+		puts ""
 
 		begin
 			game.guess!(letter)
@@ -16,10 +18,15 @@ def main
 		rescue Game::InvalidInput 
 		  	puts "Please enter a single letter"
 		rescue Game::PlayerWins
+			puts "---------------------------"
 		  	puts "CONGRATULATIONS, YOU WIN!!!"
+		  	puts "You guessed \"" + game.word + "\""
+		  	puts "---------------------------"
 		  	break
 		rescue Game::PlayerLoses
+			puts "---------------------------"
 			puts "Sorry, you lose :/"
+			puts "---------------------------"
 			break
 		end
 
