@@ -4,13 +4,14 @@ class Game
 
   def initialize(words)
     @words = words
-    @word = words.shuffle.first
-    @remaining_guesses = 5
+    @word = words.shuffle.first.downcase
+    @remaining_guesses = 6
     @guessed_word = "_" * @word.size
     @used_letters = []
   end
 
   def guess!(guessed_letter)
+    guessed_letter = guessed_letter.downcase
     raise AlreadyPlayed if @used_letters.include?(guessed_letter)
     raise InvalidInput if guessed_letter.length != 1
 
@@ -48,7 +49,7 @@ class Game
   end
 
   class PlayerWins < Exception
-    
+
   end
 
   class PlayerLoses < Exception
