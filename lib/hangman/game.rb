@@ -4,7 +4,7 @@ class Game
 
   def initialize(words)
     @words = words
-    @word = words.shuffle.first.downcase
+    @word = words.shuffle.first.downcase.gsub(/[^0-9a-z]/i, '')
     @remaining_guesses = 6
     @guessed_word = "_" * @word.size
     @used_letters = []

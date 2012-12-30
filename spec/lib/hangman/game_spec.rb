@@ -2,6 +2,13 @@ require "hangman/game"
 
 describe Game do
 
+  context "initializer" do
+    it "strips special characters" do
+      game = Game.new(["word\n"])
+      game.formatted_word.should == "_ _ _ _"
+    end
+  end
+
   context "Creates a game from the dictionary array" do
     let(:word) { "word" }
     let(:game) { Game.new([word]) }
@@ -21,7 +28,7 @@ describe Game do
     end
 
     it "will start with 5 remaining_guesses" do
-      game.remaining_guesses.should == 5
+      game.remaining_guesses.should == 6
     end
 
     it "will start with 0 used letters" do
@@ -37,7 +44,7 @@ describe Game do
         end
 
         it "will not change remaining_guesses" do
-          game.remaining_guesses.should == 5
+          game.remaining_guesses.should == 6
         end
 
         it "will show in guessed_word in correct position" do
@@ -53,7 +60,7 @@ describe Game do
         end
 
         it "will not change remaining_guesses" do
-          game.remaining_guesses.should == 4
+          game.remaining_guesses.should == 5
         end
 
         it "will show in guessed_word in correct position" do
@@ -94,6 +101,7 @@ describe Game do
         game.guess!("s")
         game.guess!("e")
         game.guess!("f")
+        game.guess!("z")
         expect {game.guess!("q")}.to raise_error(Game::PlayerLoses)
       end
     end
