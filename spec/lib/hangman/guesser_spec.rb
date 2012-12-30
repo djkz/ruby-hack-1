@@ -2,21 +2,16 @@ require "hangman/guesser"
 
 describe Guesser do
 
-	context "Guessing letters" do
-		it "will take word, guessed_word and a letter"
+  context "will take word, guessed_word and a letter" do
 
-		context "letter is in the word once" do
-			
-			
-
+		it "letter is in the word once" do
+          Guesser.guess("word","_ _ _ _", w).should eq "w _ _ _"
 		end
 
-		context "letter is not in the word" do
-			
+		it "letter is not in the word" do
 		end
 
-		context "letter is in the word multiple times" do
-			
+		it "letter is in the word multiple times" do
 		end
 	end
 
