@@ -20,12 +20,13 @@ def main
 		rescue Game::PlayerWins
 			puts "---------------------------"
 		  	puts "CONGRATULATIONS, YOU WIN!!!"
-		  	puts "You guessed \"" + game.word + "\""
+		  	puts "You guessed #{ game.word }"
 		  	puts "---------------------------"
 		  	break
 		rescue Game::PlayerLoses
 			puts "---------------------------"
 			puts "Sorry, you lose :/"
+		  	puts "The word was #{ game.word }"
 			puts "---------------------------"
 			break
 		end
