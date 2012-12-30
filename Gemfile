@@ -36,3 +36,9 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+gem "psych"
+
+group :test, :development do
+  gem "rspec-rails"
+  gem "guard-rspec"
+end
