@@ -2,7 +2,7 @@
 require_relative "game"
 
 def main
-	game = Game.new(["hello","world","tima"])
+	game = Game.new(load_words)
 
 	while true
 		game_state(game)
@@ -27,7 +27,19 @@ def main
 	end
 end
 
+def load_words
+  words = []
+  word_file = File.open("words.txt","r") do |line|
+    while (word = line.gets)
+      words << word
+    end
+  end
+  words
+end
+
+
 def game_state(game)
+  puts " "
 	puts game.formatted_word
 	puts "letters played :: " + game.played_letters
 	puts "guesses remaining :: " + game.remaining_guesses.to_s
