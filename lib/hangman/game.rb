@@ -1,5 +1,5 @@
 class Game
-  require "hangman/guesser"
+  require_relative "guesser"
   attr_accessor :word, :guessed_word, :remaining_guesses, :used_letters
 
   def initialize(words)
@@ -48,7 +48,7 @@ class Game
   end
 
   class PlayerWins < Exception
-
+    
   end
 
   class PlayerLoses < Exception
