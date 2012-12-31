@@ -41,11 +41,8 @@ def play_again
 	puts ""
 	print "Would you like to play again? (y)"
 	play_again = gets.chomp
-	if (play_again == "") or (play_again == "y")
-		true
-	else
-		false
-	end
+	play_again == "" or play_again == "y"
+	
 end
 
 def load_words
