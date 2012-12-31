@@ -5,6 +5,9 @@ class GameController < ApplicationController
 	def init
 		game = Game.new(load_words)
 		@word = game.word
+		@remaining_guesses = game.remaining_guesses
+		@guessed_word = game.formatted_word
+		@used_letters = game.used_letters
 	end
 
 	def load_words
