@@ -9,15 +9,15 @@ class WelcomeController < ApplicationController
     begin
       @game.guess!(params[:id])
     rescue Game::PlayerWins
-      flash[:notice] = "You win"
       session[:game] = Game.new(load_words)
     rescue Game::PlayerLoses
-      flash[:notice] = "You lose - the word was #{@game.word}"
       session[:game] = Game.new(load_words)
     rescue Game::AlreadyPlayed
       flash[:error] = "This letter has already been played"
+      render :index and return
+    else
+      render :index and return
     end
-    render :index and return
   end
 
   def load_game_from_session
