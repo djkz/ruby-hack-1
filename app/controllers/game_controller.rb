@@ -24,4 +24,8 @@ class GameController < ApplicationController
 	  words
 	end
 
+	def guess(input)
+		game.guess!(input)
+	end
+
 end
