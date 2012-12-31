@@ -3,7 +3,6 @@ class Game
   attr_accessor :word, :guessed_word, :remaining_guesses, :used_letters
 
   def initialize(words)
-    @words = words
     @word = words.shuffle.first.downcase.gsub(/[^0-9a-z]/i, '')
     @remaining_guesses = 6
     @guessed_word = "_" * @word.size

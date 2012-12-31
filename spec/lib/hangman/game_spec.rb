@@ -27,7 +27,7 @@ describe Game do
       game.formatted_word.should == "w _ _ _"
     end
 
-    it "will start with 5 remaining_guesses" do
+    it "will start with 6 remaining_guesses" do
       game.remaining_guesses.should == 6
     end
 

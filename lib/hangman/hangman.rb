@@ -22,17 +22,29 @@ def main
 		  	puts "CONGRATULATIONS, YOU WIN!!!"
 		  	puts "You guessed #{ game.word }"
 		  	puts "---------------------------"
-		  	break
+            if play_again
+              game = Game.new(load_words)
+            else
+              break
+            end
 		rescue Game::PlayerLoses
 			puts "---------------------------"
 			puts "Sorry, you lose :/"
 		  	puts "The word was #{ game.word }"
 			puts "---------------------------"
-			break
+            if play_again
+              game = Game.new(load_words)
+            else
+              break
+            end
 		end
-
-
 	end
+end
+
+def play_again
+  print "Would you like to play again? "
+  q = gets.chomp
+  q.downcase == "y" or q.empty?
 end
 
 def load_words

@@ -1,0 +1,12 @@
+<h1>Hangman</h1>
+<h2><%= @game.formatted_word %></h2>
+<p><%= @game.remaining_guesses %> guesses left</p>
+<p><% ("a".."z").each do |letter| %>
+    <% if @game.played_letters.include?(letter) %>
+      <span><%= letter %></span>
+    <% else %>
+      <%= link_to letter, guess_path(letter) %>
+    <% end %>
+  <% end %>
+</p>
+
